@@ -2,7 +2,8 @@
 FROM python:3.9.6-buster
 
 RUN apt-get update && apt-get install -y \
-    redis-server
+    redis-server\ 
+    nginx
 
 # set work directory
 WORKDIR /usr/src/app
@@ -18,6 +19,8 @@ ENV APP_SETTINGS project.server.config.DevelopmentConfig
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
+
+copy ./nginx /etc/nginx
 
 # copy project
 COPY . .
