@@ -1,6 +1,6 @@
 server {
-        listen 80;
-        listen [::]:80;
+        listen 5123;
+        listen [::]:5123;
         charset utf-8;
 
         location / {
